@@ -1,1 +1,4 @@
-$("#<%= dom_id(@like.photo) %>_likes").html("<%= j(render partial: 'photos/likes', locals: { photo: @like.photo }) %>");
+<% old_like_content = "#{dom_id(@like.photo)}_likes" %>
+<% new_like_content = j(render partial: 'photos/likes', locals: { photo: @like.photo }) %>
+
+$("#<%= old_like_content %>").replaceWith("<%= new_like_content %>");
