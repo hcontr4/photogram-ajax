@@ -1,4 +1,5 @@
-<% old_follow_content = "#{dom_id(@follow_request.sender)}_#{dom_id(@follow_request.recipient)}_follow" %>
-<% new_follow_content = j(render partial: 'follow_requests/follow_unfollow', locals: { sender: @follow_request.sender, recipient: @follow_request.recipient }) %>
+var old_follow_content = $(".<%= dom_id(@follow_request.sender) %>_<%= dom_id(@follow_request.recipient) %>_follow");
+var new_follow_content = $("<%= j(render partial: 'follow_requests/follow_unfollow', 
+  locals: { sender: @follow_request.sender, recipient: @follow_request.recipient }) %>");
 
-$(".<%= old_follow_content %>").replaceWith("<%= new_follow_content %>");
+old_follow_content.replaceWith(new_follow_content);
