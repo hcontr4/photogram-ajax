@@ -8,9 +8,9 @@
         <% end %>
       <% elsif follow_request.accepted? %>
         <%= link_to follow_request,  
-        method: :delete, 
-        class: "btn btn-outline-secondary",
-        remote: true do %>
+          method: :delete, 
+          class: "btn btn-outline-secondary",
+          remote: true do %>
           Un-follow
         <% end %>
       <% end %>
