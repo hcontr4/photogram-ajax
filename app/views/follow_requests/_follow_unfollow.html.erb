@@ -1,7 +1,6 @@
- <div class="<%= dom_id(photo.owner, :follow) %>">
+<div class="<%= dom_id(recipient, :follow) %>">
   <% unless sender == recipient %>
     <% follow_request = current_user.sent_follow_requests.find_by(recipient: recipient) %>
-
     <% if follow_request %>
       <% if follow_request.pending? %>
         <%= link_to follow_request,  data: { turbo_method: :delete }, class: "btn btn-outline-secondary" do %>
@@ -9,9 +8,9 @@
         <% end %>
       <% elsif follow_request.accepted? %>
         <%= link_to follow_request,  
-      method: :delete, 
-      class: "btn btn-outline-secondary",
-      remote: true do %>
+        method: :delete, 
+        class: "btn btn-outline-secondary",
+        remote: true do %>
           Un-follow
         <% end %>
       <% end %>
